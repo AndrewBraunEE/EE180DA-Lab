@@ -2,6 +2,9 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
+def reload_image(image):
+	img = cv2.imread(image, 0)
+	return img
 
 def contour(image = 'something', percent_arclength = 0.1):
 	img = cv2.imread(image, 0)
@@ -35,37 +38,45 @@ def contour(image = 'something', percent_arclength = 0.1):
 
 	#Bounding Rectangle
 	x,y,w,h = cv2.boundingRect(cnt)
-	img = cv2.rectangle(original_image,(x,y),(x+w,y+h),(0,255,0),2)
+	img1 = cv2.rectangle(original_image,(x,y),(x+w,y+h),(0,255,0),2)
 
-	cv2.imwrite('output/BoundingRect.jpg', img)
+	cv2.imwrite('output/BoundingRect.jpg', img1)
+
+	img = reload_image(image)
 
 	#Rotated Bounding Rectangle
 	rect = cv2.minAreaRect(cnt)
 	box = cv2.boxPoints(rect)
 	box = np.int0(box)
-	im = cv2.drawContours(original_image,[box],0,(0,0,255),2)
+	img5 = cv2.drawContours(img,[box],0,(0,0,255),2)
 
-	cv2.imwrite('output/BoundingRectRotated.jpg', im)
+	cv2.imwrite('output/BoundingRectRotated.jpg', img5)
+
+	img = reload_image(image)
 
 	#Minimum Enclosing Circle
 	(x,y),radius = cv2.minEnclosingCircle(cnt)
 	center = (int(x),int(y))
 	radius = int(radius)
-	img = cv2.circle(img,center,radius,(0,255,0),2)
-	cv2.imwrite('output/MinCircle.jpg', img)
+	img2 = cv2.circle(img,center,radius,(0,255,0),2)
+	cv2.imwrite('output/MinCircle.jpg', img2)
+
+	img = reload_image(image)
 
 	#Fitting Ellipse
 	ellipse = cv2.fitEllipse(cnt)
-	im = cv2.ellipse(original_image,ellipse,(0,255,0),2)
-	cv2.imwrite('output/FitEllipse.jpg', im)
+	img4 = cv2.ellipse(img,ellipse,(0,255,0),2)
+	cv2.imwrite('output/FitEllipse.jpg', img4)
 	
+	img = reload_image(image)
+
 	#Fitting a line
 	rows,cols = img.shape[:2]
 	[vx,vy,x,y] = cv2.fitLine(cnt, cv2.DIST_L2,0,0.01,0.01)
 	lefty = int((-x*vy/vx) + y)
 	righty = int(((cols-x)*vy/vx)+y)
-	img = cv2.line(img,(cols-1,righty),(0,lefty),(0,255,0),2)
-	cv2.imwrite('output/FitEllipse.jpg', img)
+	img3 = cv2.line(img,(cols-1,righty),(0,lefty),(0,255,0),2)
+	cv2.imwrite('output/FitLine.jpg', img3)
 
 
 def main():
