@@ -24,12 +24,14 @@ def contour(image = 'something', percent_arclength = 0.1):
 	area = cv2.contourArea(cnt)
 	perimeter = cv2.arcLength(cnt, True)
 	
-	#10% of arclength
+	#10% of arclength, Contour
 	epsilon = percent_arclength*cv2.arcLength(cnt,True)
 	approx = cv2.approxPolyDP(cnt,epsilon,True)
+	cv2.imwrite('output/approx.jpg', approx)
 
 	#ConvexHull
 	hull = cv2.convexHull(cnt)
+	cv2.imwrite('output/convex_hull.jpg', hull)
 	#Convexity, k
 	k = cv2.isContourConvex(cnt)
 

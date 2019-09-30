@@ -19,6 +19,7 @@ def detect_faces(cascade, image, scaleFactor = 1.1):
     return image_copy, len(faces_rect)
 
 def main():
+	#Finds the number of faces in the current webcam-generated image frame, and paints a green rectangle around the face.
 	video_capture = None
 	try:
 		video_capture = cv2.VideoCapture(0)
