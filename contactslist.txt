@@ -1,12 +1,16 @@
 Henry(Hongyi Chen)
 email: henrychyy@g.ucla.edu
 student id: 705186099
+henrychyy
 
 Andrew
 email:atb197@ucla.edu
+AndrewBraunEE
 
 Young(yourong yang)
 email:yourong@ucla.edu
+Young10086
 
 Wilson
 email: wlin9608@gmail.com
+WilsonLin9608
