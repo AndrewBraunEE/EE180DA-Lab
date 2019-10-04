@@ -8,7 +8,6 @@ hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
 
 gray_3_channel = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
 
-'''
 img1 = np.concatenate((bgr, gray_3_channel), axis=1)
 img2 = np.concatenate((img1, hsv), axis=1)
 
@@ -16,11 +15,5 @@ cv2.imshow("yes", img2)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-cv2.imwrite("Lab1\images\Changin_Colorspace.jpg", img2)
-'''
+cv2.imwrite("Lab1\images\Results\Changin_Colorspace.jpg", img2)
 
-titles = ["RGB", "Gray", "HSV"]
-images = [bgr, gray, hsv]
-
-plt.subplot(1, 3, 1), plt.imshow(bgr)
-#for i in range(images.__sizeof__()):
