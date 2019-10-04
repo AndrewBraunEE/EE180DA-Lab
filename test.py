@@ -1,2 +1,1 @@
-print("test")
-print("test2")
+import cv2
