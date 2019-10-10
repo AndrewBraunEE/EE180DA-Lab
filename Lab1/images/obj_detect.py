@@ -28,7 +28,7 @@ def main():
 				raise Exception("Webcam was not found!")
 			ret, frame = video_capture.read()
 			#frameRGB = frame[:,:,::-1] #RGB instead of BGR
-			haar_cascade_face = cv2.CascadeClassifier('data/haarcascades/haarcascade_frontalface_default.xml')
+			haar_cascade_face = cv2.CascadeClassifier('../../data/haarcascades/haarcascade_frontalface_default.xml')
 			image_processed, num_faces = detect_faces(haar_cascade_face, frame)
 			print('Faces found: ' + str(num_faces))
 			cv2.imshow('img', image_processed)
