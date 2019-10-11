@@ -1,5 +1,5 @@
 import paho.mqtt.client as mqtt
-MQTT_SERVER = "2605:e000:1703:634e:c500:ae55:c2a:9d3e" #mosquitto server ip address.
+MQTT_SERVER = "127.0.0.1" #mosquitto server ip address.
 MQTT_PATH = "ee180d/test" # name of a topic.
 # The callback for when the client receives a connect response from the server.
 def on_connect(client, userdata, flags, rc):
