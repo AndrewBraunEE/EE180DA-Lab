@@ -5,4 +5,3 @@ client.send("I am CLIENT\n")
 from_server = client.recv(4096)
 client.close()
 print(from_server)
-
