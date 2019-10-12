@@ -3,7 +3,7 @@
 import socket
 serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # Assigns a port for the server that listens to clients connecting to this port.
-serv.bind(('127.0.0.1', 8080))
+serv.bind(('192.168.1.253', 8080))
 serv.listen(5)
 while True:
     conn, addr = serv.accept()
